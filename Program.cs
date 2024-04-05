@@ -11,7 +11,7 @@ namespace RecipeApp
             Recipe recipe = GetRecipeDetailsFromUser();
             DisplayRecipe(recipe);
 
-            Console.WriteLine("Enter the scaling factor (0.5, 2, or 3) or 'reset' to reset quantities:");
+            Console.WriteLine("Enter the scaling factor (0.5, 2, or 3):");
             string input = Console.ReadLine();
             if (double.TryParse(input, out double scale))
             {
@@ -30,25 +30,26 @@ namespace RecipeApp
                 recipe.ResetQuantities(recipe.OriginalQuantities);
                 DisplayRecipe(recipe);
             }
+
             else
             {
                 Console.WriteLine("Invalid input.");
             }
 
-            Console.WriteLine("Enter the scaling factor (0.5, 2, or 3) or 'reset' to reset quantities:");
+            Console.WriteLine("Enter 'reset' to reset quantities:");
             string input1 = Console.ReadLine();
             if (input1.ToLower() == "reset")
             {
                 recipe.ResetQuantities(recipe.OriginalQuantities);
                 DisplayRecipe(recipe);
             }
-            else
-            {
+            
+            
                 Console.WriteLine("Press any key to clear data and enter a new recipe...");
                 Console.ReadKey();
                 Console.Clear();
                 Main(args); // Recursive call to start over
-            }
+            
         }
 
         static Recipe GetRecipeDetailsFromUser()
