@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace RecipeApp
 {
@@ -7,7 +6,9 @@ namespace RecipeApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to RecipeApp!");
+           
+            Console.WriteLine("*****Welcome to RecipeApp!******");
+            Console.WriteLine("_________________________________");
             Recipe recipe = GetRecipeDetailsFromUser();
             DisplayRecipe(recipe);
 
@@ -55,6 +56,7 @@ namespace RecipeApp
         static Recipe GetRecipeDetailsFromUser()
         {
             Console.WriteLine("Enter the number of ingredients:");
+            Console.WriteLine("_________________________________");
             int numIngredients = int.Parse(Console.ReadLine());
             Ingredient[] ingredients = new Ingredient[numIngredients];
 
@@ -88,7 +90,11 @@ namespace RecipeApp
 
         static void DisplayRecipe(Recipe recipe)
         {
-            Console.WriteLine("Recipe:");
+            Console.WriteLine("|");
+            
+            Console.WriteLine("_______________________________________");
+            Console.WriteLine("******Recipe:******");
+            Console.WriteLine("_______________________________________");
             Console.WriteLine("Ingredients:");
             foreach (var ingredient in recipe.Ingredients)
             {
@@ -99,6 +105,7 @@ namespace RecipeApp
             {
                 Console.WriteLine($"{i + 1}. {recipe.Steps[i].Description}");
             }
+            Console.WriteLine("_______________________________________");
         }
     }
 
