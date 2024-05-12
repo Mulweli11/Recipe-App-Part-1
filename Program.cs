@@ -14,6 +14,7 @@ namespace RecipeApp
 
             while (true)
             {
+                Console.WriteLine("_________________________________");
                 Console.WriteLine("1. Add Recipe");
                 Console.WriteLine("2. Display Recipes");
                 Console.WriteLine("3. Exit");
@@ -49,6 +50,7 @@ namespace RecipeApp
             List<Step> steps = GetStepsFromUser();
 
             recipes.Add(new Recipe(name, ingredients, steps));
+            Console.WriteLine("_________________________________");
             Console.WriteLine("Recipe added successfully!");
         }
 
@@ -106,14 +108,15 @@ namespace RecipeApp
                 Console.WriteLine("No recipes available.");
                 return;
             }
-
+            Console.WriteLine("_________________________________");
             Console.WriteLine("Recipes:");
             foreach (var recipe in recipes.OrderBy(r => r.Name))
             {
                 Console.WriteLine(recipe.Name);
             }
-
+            Console.WriteLine("________________________________________");
             Console.WriteLine("Enter the name of the recipe to display:");
+            Console.WriteLine("________________________________________");
             string recipeName = Console.ReadLine();
 
             Recipe selectedRecipe = recipes.FirstOrDefault(r => r.Name.Equals(recipeName, StringComparison.OrdinalIgnoreCase));
@@ -134,11 +137,13 @@ namespace RecipeApp
                 Console.WriteLine($"Total Calories: {selectedRecipe.GetTotalCalories()}");
                 if (selectedRecipe.GetTotalCalories() > 300)
                 {
+                    Console.WriteLine("__");
                     Console.WriteLine("Warning: Total calories exceed 300!");
                 }
             }
             else
             {
+                Console.WriteLine("_________________________________");
                 Console.WriteLine("Recipe not found.");
             }
         }
