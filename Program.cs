@@ -140,6 +140,37 @@ namespace RecipeApp
                     Console.WriteLine("__");
                     Console.WriteLine("Warning: Total calories exceed 300!");
                 }
+
+                Console.WriteLine("________________________________________");
+                Console.WriteLine("Enter the scaling factor (0.5, 2, or 3) or 'reset' to reset quantities:");
+                string input = Console.ReadLine();
+                if (double.TryParse(input, out double scale))
+                {
+                    if (scale == 0.5 || scale == 2 || scale == 3)
+                    {
+                        selectedRecipe.ScaleIngredients(scale);
+                        Console.WriteLine("Scaled Recipe:");
+                        foreach (var ingredient in selectedRecipe.Ingredients)
+                        {
+                            Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} of {ingredient.Name}");
+                        }
+                        Console.WriteLine($"Total Calories after scaling: {selectedRecipe.GetTotalCalories()}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid scaling factor. Please enter 0.5, 2, or 3.");
+                    }
+                }
+                else if (input.ToLower() == "reset")
+                {
+                    // Reset quantities
+                    selectedRecipe.ResetQuantities();
+                    Console.WriteLine("Quantities reset to original values.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input.");
+                }
             }
             else
             {
@@ -166,12 +197,28 @@ namespace RecipeApp
         {
             return Ingredients.Sum(i => i.Calories);
         }
+
+        public void ScaleIngredients(double factor)
+        {
+            foreach (var ingredient in Ingredients)
+            {
+                ingredient.Quantity *= factor;
+            }
+        }
+
+        public void ResetQuantities()
+        {
+            foreach (var ingredient in Ingredients)
+            {
+                ingredient.ResetQuantity();
+            }
+        }
     }
 
     class Ingredient
     {
         public string Name { get; }
-        public double Quantity { get; }
+        public double Quantity { get; set; }
         public string Unit { get; }
         public double Calories { get; }
         public string FoodGroup { get; }
@@ -183,6 +230,12 @@ namespace RecipeApp
             Unit = unit;
             Calories = calories;
             FoodGroup = foodGroup;
+        }
+
+        public void ResetQuantity()
+        {
+            
+            Quantity = 0;
         }
     }
 
@@ -196,3 +249,4 @@ namespace RecipeApp
         }
     }
 }
+
