@@ -7,8 +7,8 @@
         <Grid.Background>
     <ImageBrush ImageSource="C:\Users\LufunoS\Downloads\vegetables-set-left-black-slate.jpg"/>
 </Grid.Background>
-        <TextBlock Name="PromptTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="360"/>
-        <TextBox Name="ResponseTextBox" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Width="299" TextChanged="ResponseTextBox_TextChanged"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="314,154,0,0" VerticalAlignment="Top" Width="76" Click="OKButton_Click"/>
+        <TextBlock  Name="PromptTextBlock" Foreground="White" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="360"/>
+        <TextBox Name="ResponseTextBox" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="299" TextChanged="ResponseTextBox_TextChanged"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="314,130,0,0" VerticalAlignment="Top" Width="76" Click="OKButton_Click"/>
     </Grid>
 </Window>

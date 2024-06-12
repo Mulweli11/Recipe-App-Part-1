@@ -167,6 +167,7 @@ namespace RecipeApp
                 foreach (var recipe in recipes.OrderBy(r => r.Name))
                 {
                     recipesList += recipe.Name + "\n";
+                   
                 }
 
                 string recipeName = GetStringFromUser("Enter the name of the recipe to add to the menu (or type 'done' to finish):\n" + recipesList);

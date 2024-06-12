@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Recipe App" Height="450" Width="800">
     <Grid>
-        <!-- Set the background image -->
+        <!--  background image -->
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\LufunoS\Downloads\vegetables-set-left-black-slate.jpg"/>
         </Grid.Background>
 
-        <!-- Your existing UI elements -->
+        <!--  UI elements -->
         <Label Content="Recipe App" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,0"/>
         <Button Content="Add Recipe" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="40" Margin="10,60,0,0" Click="AddRecipe_Click"/>
         <Button Content="Display Recipes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="40" Margin="10,110,0,0" Click="DisplayRecipes_Click"/>
